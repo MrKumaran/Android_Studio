@@ -15,8 +15,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.fontResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily.Companion.Cursive
 import androidx.compose.ui.text.font.FontFamily.Companion.Serif
@@ -36,7 +36,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingImage(message = "Happy Birthday!\n", name = "Sayanda Rayaroth velluva", from ="From Kumaran")
+                    GreetingImage(
+                        message = "Happy Birthday❤︎\n",
+                        name = "Sayanda Rayaroth velluva",
+                        from = "From Kumaran"
+                    )
                 }
             }
         }
@@ -44,38 +48,45 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(message: String,name: String, from: String, modifier: Modifier = Modifier) {
-    Column(verticalArrangement = Arrangement.Center,
-        modifier = modifier.padding(8.dp)){
-    Text(
-        text = message,
-        fontSize = 50.sp,
-        fontWeight = FontWeight(900),
-        fontFamily = Cursive,
-        lineHeight = 60.sp,
-        textAlign = TextAlign.Center
-    )
+fun Greeting(message: String, name: String, from: String, modifier: Modifier = Modifier) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        modifier = modifier.padding(8.dp)
+    ) {
+        Text(
+            text = message,
+            fontSize = 50.sp,
+            color = Color.Red,
+            fontWeight = FontWeight(900),
+            fontFamily = Cursive,
+            lineHeight = 60.sp,
+            textAlign = TextAlign.Center
+        )
         Text(
             text = name,
             fontSize = 70.sp,
+            color = Color.Magenta,
             fontWeight = FontWeight(550),
             fontFamily = Serif,
             lineHeight = 75.sp,
             modifier = modifier
         )
-    Text(
-        text = from,
-        fontSize = 40.sp ,
-        fontWeight = FontWeight(900),
-        fontFamily = Cursive,
-        modifier = Modifier
-            .padding(16.dp)
-            .align(alignment = Alignment.End)
-    )
+
+        Text(
+            text = from,
+            color = Color.Blue,
+            fontSize = 40.sp,
+            fontWeight = FontWeight(900),
+            fontFamily = Cursive,
+            modifier = Modifier
+                .padding(16.dp)
+                .align(alignment = Alignment.End)
+        )
+    }
 }
-}
+
 @Composable
-fun GreetingImage(message: String,name: String, from: String, modifier: Modifier = Modifier) {
+fun GreetingImage(message: String, name: String, from: String, modifier: Modifier = Modifier) {
     val image = painterResource(R.drawable.catbg2)
     Box(modifier) {
         Image(
@@ -89,7 +100,7 @@ fun GreetingImage(message: String,name: String, from: String, modifier: Modifier
             name = name,
             from = from,
             modifier = Modifier
-               //.fillMaxSize()
+                //.fillMaxSize()
                 .padding(8.dp)
         )
     }
